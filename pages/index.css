@@ -3,31 +3,7 @@
 @import url("../blocks/page.css");
 @import url("../blocks/header.css");
 @import url("../blocks/profile.css");
+@import url("../blocks/gallery.css");
 @import url("../blocks/card.css");
-@import url("../blocks/cards.css");
 @import url("../blocks/content.css");
 @import url("../blocks/footer.css");
-
-@media screen and (max-width: 480px) {
-  .profile {
-    background-color: aqua;
-    flex-direction: column;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .profile__description {
-    width: 100%;
-    text-align: center;
-  }
-
-  .profile__add-button {
-    margin: 0;
-    width: 100%;
-  }
-}
