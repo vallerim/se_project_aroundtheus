@@ -1,25 +1,14 @@
 .gallery {
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  padding: 15px 0 36px;
+  /* padding: 15px 0 36px; */
 }
 
 .gallery__cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 18px;
+  grid-gap: 20px 17px;
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-@media screen and (max-width: 568px) {
-  .gallery__cards {
-    padding: 15px 0 18px;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .gallery {
-    display: flex;
-  }
+  justify-content: center;
 }

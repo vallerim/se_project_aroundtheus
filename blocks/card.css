@@ -1,7 +1,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -31,10 +30,8 @@
   color: black;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding-bottom: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 25px;
+  padding: 25px 20px;
+  justify-content: space-between;
 }
 
 .card__title {
@@ -58,9 +55,6 @@
 }
 
 .card__like-button:hover {
-  background: transparent url(../images/heart.hover.svg) center no-repeat;
-  width: 21px;
-  height: 18px;
-  border: none;
-  margin-left: auto;
+  opacity: 0.5;
+  cursor: pointer;
 }
