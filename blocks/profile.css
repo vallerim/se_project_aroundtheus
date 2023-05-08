@@ -40,7 +40,7 @@
   border: white 2px solid;
   grid-area: button;
   cursor: pointer;
-  margin-left: 165px;
+  margin: auto;
   align-self: center;
   padding-right: 0;
 }
@@ -80,4 +80,106 @@
   object-fit: cover;
   background-position: center;
   margin-right: 24px;
+}
+@media screen and (max-width: 480px) {
+  .profile {
+    background-color: aqua;
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    align-items: center;
+    justify-content: center;
+    padding-top: 36px;
+    display: flex;
+    margin: 0;
+  }
+  .gallery {
+    display: flex;
+    align-content: center;
+  }
+
+  .gallery__cards {
+    align-items: center;
+  }
+}
+@media screen and (max-width: 320px) {
+  .profile {
+    display: flex;
+  }
+  .profile__info {
+    justify-content: center;
+  }
+
+  .profile__description {
+    padding-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile__title {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    max-width: 282px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile__image {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile__info {
+    justify-content: center;
+  }
+
+  .profile__description {
+    padding-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile__title {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    max-width: 282px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile__image {
+    margin: 0;
+    padding: 0;
+  }
 }

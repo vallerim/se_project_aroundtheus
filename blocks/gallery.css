@@ -17,3 +17,9 @@
     padding: 15px 0 18px;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .gallery {
+    display: flex;
+  }
+}
