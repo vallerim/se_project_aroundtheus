@@ -1,9 +1,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 .card__list {
   display: grid;

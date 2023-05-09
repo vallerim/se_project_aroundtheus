@@ -2,13 +2,13 @@
 
 ### Overview  
 
-* Intro  
+* Project Description  
 * Figma  
 * Images  
   
-**Intro**
+**Project Description**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+This is the final project for Sprint 3-Adaptive Web Design and Working with Layouts in Practicum's Software Engineering program. The main focus of this project was to implement responsive web deisign.  
   
 **Figma**  
   
