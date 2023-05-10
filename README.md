@@ -16,4 +16,4 @@ This is the final project for Sprint 3-Adaptive Web Design and Working with Layo
   
 **Techniques Used**  
   
-This project was a great exercise in implementing grids,  and media quri
+This project was a great exercise in implementing grids, media queries, and flexbox. 
