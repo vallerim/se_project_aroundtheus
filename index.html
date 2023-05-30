@@ -32,6 +32,7 @@
               class="profile__edit-button"
               type="button"
               name="edit-button"
+              id="profile-edit-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
@@ -140,14 +141,30 @@
         </footer>
       </main>
     </div>
-    <div class="modal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"
+        ></button>
+        <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
-          <p class="modal__heading">Edit Profile</p>
-          <input class="modal__form-input" type="text" name="title" />
-          <input class="modal__form-input" type="text" name="description" />
-          <button class="modal__button">Save</button>
+          <input
+            class="modal__form-input"
+            type="text"
+            name="title"
+            placeholder="Name"
+          />
+          <input
+            class="modal__form-input"
+            type="text"
+            name="description"
+            placeholder="About Me"
+          />
+          <button class="modal__button" type="submit" aria-label="save">
+            Save
+          </button>
         </form>
       </div>
     </div>
