@@ -151,16 +151,20 @@
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
           <input
-            class="modal__form-input"
+            class="modal__input"
             type="text"
             name="title"
             placeholder="Name"
+            id="profile-title-input"
+            required
           />
           <input
-            class="modal__form-input"
+            class="modal__input"
             type="text"
             name="description"
-            placeholder="About Me"
+            placeholder="Descrption"
+            id="profile-description-input"
+            required
           />
           <button class="modal__button" type="submit" aria-label="save">
             Save
