@@ -29,7 +29,7 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditCloseButton = document.querySelector("#modal-close-button");
+const profileModalCloseButton = document.querySelector("#modal-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -80,7 +80,7 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 
-profileEditCloseButton.addEventListener("click", () => {
+profileModalCloseButton.addEventListener("click", () => {
   closePopup();
 });
 
@@ -90,3 +90,5 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });
+
+/*Note to reviewer--I saved the could be improved comments. Did not have time to implement them.*/
