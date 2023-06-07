@@ -73,7 +73,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0;
   color: #000;
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   margin-bottom: 29px;
   min-height: 27px;
   width: 100%;
@@ -131,12 +133,9 @@
 
   .modal__heading {
     font-size: 18px;
-
     margin-bottom: 75px;
   }
-  .modal__input {
-    width: 238px;
-  }
+
   .modal__close {
     width: 26px;
     height: 26px;
@@ -145,7 +144,6 @@
   }
 
   .modal__button {
-    width: 100%;
     min-height: 46px;
     font-size: 14px;
     align-self: center;
