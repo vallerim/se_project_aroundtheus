@@ -83,6 +83,15 @@
         </form>
       </div>
     </div>
+    <!--Modal Image Preview-->
+    <div class="modal" id="image-preview-modal">
+      <div class="modal__image-container">
+        <button class="modal__close" id="close-image-preview"></button>
+        <img class="modal__image-preview" alt="" src="#" id="image-preview" />
+        <p class="modal__image-title" id="preview-image-title"></p>
+      </div>
+    </div>
+
     <!--Add card modal-->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
@@ -117,7 +126,14 @@
     </div>
     <template id="card-template">
       <li class="card">
-        <img src="" class="card__image" alt="" />
+        <button
+          class="card__delete-button"
+          type="button"
+          name="trash-button"
+          id="card-delete"
+        ></button>
+        <img src="#" class="card__image" alt="#" />
+
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button

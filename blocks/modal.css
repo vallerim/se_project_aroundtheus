@@ -152,3 +152,29 @@
     align-self: center;
   }
 }
+.modal__image-container {
+  height: 540px;
+  width: 433px;
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal__image-preview {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__image-title {
+  color: #fff;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: 10px;
+  margin-bottom: 0;
+}

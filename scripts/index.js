@@ -48,6 +48,14 @@ const addCardModalCloseButton = document.querySelector(
 const addCardFormElement = document.querySelector("#add-card-form");
 const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
 const cardUrlInput = addCardFormElement.querySelector("#card-image-url");
+const previewImageModal = document.querySelector("#image-preview-modal");
+const previewImage = previewImageModal.querySelector("#image-preview");
+const previewImageCloseButton = previewImageModal.querySelector(
+  "#close-image-preview"
+);
+const previewImageTitle = previewImageModal.querySelector(
+  "#preview-image-title"
+);
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -89,13 +97,18 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
-  //find delete button
+  const deleteButton = cardElement.querySelector("#card-delete");
 
-  //add the event listener to the delete button
-  //cardElement.remove();
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
-  //add click listener to the cardImage
-  //use open modal previewImageModal
+  cardImageEl.addEventListener("click", () => {
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewImageTitle.textContent = cardData.name;
+    openModal(previewImageModal);
+  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -118,6 +131,10 @@ profileEditButton.addEventListener("click", () => {
 
 profileModalCloseButton.addEventListener("click", () => {
   closeModal(profileEditModal);
+});
+
+previewImageCloseButton.addEventListener("click", () => {
+  closeModal(previewImageModal);
 });
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
