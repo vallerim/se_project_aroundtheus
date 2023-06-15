@@ -56,3 +56,7 @@
   cursor: pointer;
   transition: all 1s;
 }
+
+.card__like-button_active {
+  background-image: url(../images/heartactive.svg);
+}
