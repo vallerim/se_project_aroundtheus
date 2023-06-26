@@ -127,8 +127,6 @@
 }
 
 .modal__image-container {
-  /* max-height: 540px;
-  max-width: 433px;*/
   background-color: transparent;
   border-radius: 0px;
   padding: 0;
@@ -183,12 +181,8 @@
     font-size: 14px;
     align-self: center;
   }
-
-  /* .modal__image-container {
-    width: 240px;
-    height: 299px;*/
 }
-.modal__close-image_preview {
+.modal__close-image-preview {
   left: calc(100% + 4px);
   height: 30px;
   width: 30px;
