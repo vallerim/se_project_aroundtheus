@@ -61,40 +61,34 @@
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
         <form class="modal__form" id="edit-profile-form">
-          <label class="modal__label">
-            <input
-              class="modal__input"
-              type="text"
-              name="title"
-              placeholder="Name"
-              id="profile-title-input"
-              required
-              maxlength="40"
-              minlength="2"
-            />
-            <span
-              class="modal__error modal__error_visible"
-              id="profile-title-input-error"
-            ></span>
-          </label>
-          <label class="modal__label">
-            <input
-              class="modal__input"
-              type="text"
-              name="description"
-              placeholder="Descrption"
-              id="profile-description-input"
-              required
-              maxlength="200"
-              minlength="2"
-            />
-            <span
-              class="modal__error modal__error_visible"
-              id="profile-description-input-error"
-            ></span>
-          </label>
+          <input
+            class="modal__input"
+            type="text"
+            name="title"
+            placeholder="Name"
+            id="profile-title-input"
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <span class="modal__error" id="profile-title-input-error"></span>
+          <input
+            class="modal__input"
+            type="text"
+            name="description"
+            placeholder="Descrption"
+            id="profile-description-input"
+            required
+            minlength="2"
+            maxlength="200"
+          />
+          <span
+            class="modal__error"
+            id="profile-description-input-error"
+          ></span>
+
           <button
-            class="modal__button modal__button_disabled"
+            class="modal__button"
             type="submit"
             aria-label="save"
             disabled
@@ -133,17 +127,21 @@
             placeholder="Title"
             id="card-title-input"
             required
+            minlength="1"
+            maxlength="30"
           />
+          <span class="modal__error" id="card-title-input-error"></span>
           <input
             class="modal__input modal__input_type_url"
-            type="text"
+            type="url"
             name="url"
             placeholder="Image URL"
             id="card-image-url"
             required
           />
+          <span class="modal__error" id="card-image-url-error"></span>
           <button
-            class="modal__button modal__button_disabled"
+            class="modal__button"
             type="submit"
             aria-label="save"
             disabled

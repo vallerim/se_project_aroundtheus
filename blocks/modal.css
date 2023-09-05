@@ -100,24 +100,26 @@
   color: #a9a9a9;
 }
 
-.modal__input_type_title {
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
 }
 
-.modal__input-error {
+.modal__error {
+  line-height: 15px;
   font-size: 12px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  left: 0;
   font-weight: 400;
-  font-family: "Inter", Arial, sans-serif;
+  width: 100%;
   margin: 0;
 }
 
-.modal__input-error-visible {
-  border-top: 1px solid rgba(255, 0, 0, 1);
+.modal__error_visible {
   color: #ff0000;
-  line-height: 15px;
-  position: absolute;
-  top: calc(100% + 5px);
+  position: relative;
+  opacity: 1;
   left: 0;
-  transition: opacity 0.5s;
+  top: 5px;
 }
 
 .modal__button {
@@ -144,6 +146,11 @@
 }
 
 .modal__button_disabled {
+  color: black;
+  opacity: 0.2;
+  pointer-events: none;
+  border: 1px #000 solid;
+  background-color: transparent;
 }
 
 .modal__image-container {
@@ -173,11 +180,7 @@
 }
 
 .modal__label {
-}
-
-.modal__error {
-  color: #ff0000;
-  /*opacity: 0;*/
+  position: relative;
 }
 
 @media screen and (max-width: 630px) {
