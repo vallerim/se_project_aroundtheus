@@ -185,13 +185,14 @@
 @media screen and (max-width: 630px) {
   .modal__container {
     width: 282px;
-    height: 322px;
+
     padding: 25px 22px;
   }
 
   .modal__form {
     width: 238px;
     margin: auto;
+    padding: 0;
   }
 
   .modal__heading {
@@ -217,3 +218,23 @@
   height: 30px;
   width: 30px;
 }
+
+@media screen and (max-width:430px) {
+  .modal__container {
+    height: 322px;
+  }
+
+.modal__error_visible {
+  font-size: 6px;
+  padding:0;
+  margin: 0;
+}
+
+.modal__button {
+  margin-top: 20px;
+  padding-bottom: 3px
+}
+
+}
+
+/* Note to reviewer: I am working on having the modal be more responsive now that the error messages pop up but the design on figma does not really include parameters to adjust the modal */
