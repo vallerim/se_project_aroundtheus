@@ -122,11 +122,12 @@ function getCardElement(cardData) {
 }
 
 function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
+  if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
   }
 }
+
 
 
 function closeByClick(evt) {
