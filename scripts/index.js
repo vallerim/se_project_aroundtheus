@@ -62,12 +62,12 @@ const previewImageTitle = previewImageModal.querySelector(
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.addEventListener("keydown", closeByEscape);
+  document.removeEventListener("keydown", closeByEscape);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.removeEventListener("keydown", closeByEscape);
+  document.addEventListener("keydown", closeByEscape);
 }
 
 function renderCard(cardData, wrapper) {
