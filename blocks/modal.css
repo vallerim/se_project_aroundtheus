@@ -80,7 +80,6 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  /*margin-bottom: 29px;*/
   min-height: 27px;
   width: 100%;
   font-family: "Inter", Arial, sans-serif;
@@ -94,9 +93,7 @@
 
 }
 
-/*.modal__input:last-of-type {
-  margin-bottom: 0;
-}*/
+
 
 .modal__input::placeholder {
   color: #a9a9a9;

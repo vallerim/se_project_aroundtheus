@@ -122,12 +122,25 @@ function getCardElement(cardData) {
 }
 
 function closeByEscape(evt) {
-  if (evt.key == "Escape") {
+  if (evt.key === 'Escape') {
     const openedModal = document.querySelector(".modal_opened");
-    console.log(openedModal);
+    closeModal(openedModal);
   }
 }
 
+
+function closeByClick(evt) {
+  if (
+    evt.target.classList.contains("modal") ||
+    evt.target.classList.contains("modal__close")
+  ) {
+    closeModal(evt.currentTarget);
+  }
+}
+
+[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
+  modal.addEventListener("click", closeByClick);
+});
 
 
 /* -------------------------------------------------------------------------- */
