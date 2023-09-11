@@ -91,7 +91,9 @@ function handleAddCardSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsWrap);
+  addCardFormElement.reset();
   closeModal(addCardModal);
+
 }
 
 function getCardElement(cardData) {
@@ -154,20 +156,13 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
-profileModalCloseButton.addEventListener("click", () => {
-  closeModal(profileEditModal);
-});
 
-previewImageCloseButton.addEventListener("click", () => {
-  closeModal(previewImageModal);
-});
+
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
 
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+
+
 profileEditForm.addEventListener("submit", handleProfileSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
