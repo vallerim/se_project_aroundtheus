@@ -1,3 +1,5 @@
+import Card from "./components/Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,6 +26,15 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+const cardData = {
+  name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+}
+
+const card = new Card(cardData, "#card-template");
+card.getView();
+
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -103,8 +114,8 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector("#card-delete");
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
+  //deleteButton.addEventListener("click", () => {
+    //cardElement.remove();//
   });
 
   cardImageEl.addEventListener("click", () => {
