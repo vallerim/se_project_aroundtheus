@@ -1,4 +1,6 @@
-import Card from "./components/Card.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 
 const initialCards = [
   {
@@ -67,9 +69,34 @@ const previewImageCloseButton = previewImageModal.querySelector(
 const previewImageTitle = previewImageModal.querySelector(
   "#preview-image-title"
 );
+
+/* -------------------------------------------------------------------------- */
+/*                                  Validation                                */
+/* -------------------------------------------------------------------------- */
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormElement = profileEditModal.querySelector("#edit-profile-form");
+const addFormElement = addCardModal.querySelector("#add-card-form");
+
+
+const editFormValidator = new FormValidator(validationSettings, editFormElement);
+const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
+
+
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -81,13 +108,20 @@ function openModal(modal) {
   document.addEventListener("keydown", closeByEscape);
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+function renderCard(data, wrapper) {
+  const card = new Card (data, "#card-template", handleImageClick);
+  wrapper.prepend(card.getView());
+}
+
+function handleImageClick(data) {
+  imagePreview.src = data.link;
+  imagePreview.alt = `Photo of ${data.name}`;
+  imagePreviewTitle.textContent = data.name;
+  openModal(imagePreviewModal);
 }
 
 /* -------------------------------------------------------------------------- */
-/*                             Functions and Event Handlers                               */
+/*                             Functions and Event Handlers                   */
 /* -------------------------------------------------------------------------- */
 
 function handleProfileSubmit(e) {
@@ -103,36 +137,38 @@ function handleAddCardSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsWrap);
   addCardFormElement.reset();
+
   closeModal(addCardModal);
-
+addFormValidator.resetValidation()
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector("#card-delete");
+//function getCardElement(cardData) {
+ // const cardElement = cardTemplate.cloneNode(true);
+  //const cardImageEl = cardElement.querySelector(".card__image");
+  //const cardTitleEl = cardElement.querySelector(".card__title");
+  //const likeButton = cardElement.querySelector(".card__like-button");
+  //const deleteButton = cardElement.querySelector("#card-delete");};
 
-  //deleteButton.addEventListener("click", () => {
-    //cardElement.remove();//
-  });
+  //cardImageEl.addEventListener("click", () => {
+  //  previewImage.src = cardData.link;
+    //previewImage.alt = cardData.name;
+    //previewImageTitle.textContent = cardData.name;
+    //openModal(previewImageModal);
+//  });
 
-  cardImageEl.addEventListener("click", () => {
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewImageTitle.textContent = cardData.name;
-    openModal(previewImageModal);
-  });
+ // likeButton.addEventListener("click", () => {
+  //  likeButton.classList.toggle("card__like-button_active");
+ // });
+ // cardImageEl.src = cardData.link;
+ // cardImageEl.alt = cardData.name;
+ // cardTitleEl.textContent = cardData.name;
+  //return cardElement;
+//}
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
+
+
+
+
 
 function closeByEscape(evt) {
   if (evt.key === "Escape") {
