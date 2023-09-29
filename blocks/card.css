@@ -59,7 +59,7 @@
 }
 
 .card__like-button_active {
-  background-image: url(../images/heartactive.svg);
+  background:  url(../images/heartactive.svg);
 }
 
 .card__delete-button {

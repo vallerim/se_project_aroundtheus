@@ -38,6 +38,7 @@ _toggleButtonState() {
       this._submitButton.disabled = true;
       return;
     }
+
     this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
   }

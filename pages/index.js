@@ -214,3 +214,4 @@ profileEditForm.addEventListener("submit", handleProfileSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+

@@ -7,6 +7,12 @@ this._handeImageClick = handleImageClick;
 }
 
 
+_getCardTemplate() {
+  const cardElement = document.querySelector(this._cardSelector).content.firstElementChild.cloneNone(true);
+  return cardElement;
+}
+
+
 _setEventListeners() {
  this._cardElement.querySelector(".card__like-button").addEventListener("click", () => {
     this._handleLikeIcon();
@@ -16,9 +22,7 @@ _setEventListeners() {
     this._handleDeleteCard();
   });
 
-  this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
+  this._cardElement.querySelector(".card__image").addEventListener("click", () => {
         this._handleImageClick({
           name: this._name,
           link: this._link,
@@ -29,6 +33,7 @@ _setEventListeners() {
 
 _handleLikeIcon() {
   this._cardElement.querySelector(".card__like-button").classList.toggle(".card__like-button_active");
+
 }
 
 _handleDeleteCard() {
@@ -38,13 +43,11 @@ this._cardElement = null;
 
 
 getView() {
-  this._cardElement = document
-  .querySelector(this._cardSelector)
-  .content.querySelector(".card")
-  .cloneNode(true);
-
-  this._cardElement.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
-  this._cardElement.querySelector(".card__title").textContent = this._name;
+  this._cardElement = document.querySelector(this._cardSelector).content.querySelector(".card").cloneNode(true);
+const cardImage =  this._cardElement.querySelector(".card__image");
+cardImage.src = this._link;
+cardImage.alt = 'Image $ ${this._link}'
+this._cardElement.querySelector(".card__title").textContent = this._name;
 
 this._setEventListeners();
 
