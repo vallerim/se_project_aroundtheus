@@ -32,7 +32,7 @@ _setEventListeners() {
 
 
 _handleLikeIcon() {
-  this._cardElement.querySelector(".card__like-button").classList.toggle(".card__like-button_active");
+  this._cardElement.querySelector(".card__like-button").classList.toggle("card__like-button_active");
 
 }
 

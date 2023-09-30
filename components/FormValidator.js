@@ -38,7 +38,6 @@ _toggleButtonState() {
       this._submitButton.disabled = true;
       return;
     }
-
     this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
   }
@@ -60,6 +59,7 @@ _setEventListeners() {
       this._toggleButtonState(inputElement);
     });
   });
+  this._toggleButtonState();
 }
 
 resetValidation() {
@@ -78,11 +78,3 @@ enableValidation() {
 
 }
 
-//const settings = {
-  //formSelector: ".modal__form",
-  //inputSelector: ".modal__input",
-  //submitButtonSelector: ".modal__button",
-  //inactiveButtonClass: "modal__button_disabled",
-  //inputErrorClass: "modal__input_type_error",
-  //errorClass: "modal__error_visible",
-//};
