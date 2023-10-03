@@ -1,7 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -28,14 +27,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
-const cardData = {
-  name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-}
-
-const card = new Card(cardData, "#card-template");
-card.getView();
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -69,6 +60,12 @@ const previewImageCloseButton = previewImageModal.querySelector(
 const previewImageTitle = previewImageModal.querySelector(
   "#preview-image-title"
 );
+const cardData = {
+  name: cardTitleInput.value,
+  link: cardUrlInput.value,
+};
+
+const card = new Card(cardData, "#card-template");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Validation                                */
@@ -85,8 +82,10 @@ const validationSettings = {
 const editFormElement = profileEditModal.querySelector("#edit-profile-form");
 const addFormElement = addCardModal.querySelector("#add-card-form");
 
-
-const editFormValidator = new FormValidator(validationSettings, editFormElement);
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
 const addFormValidator = new FormValidator(validationSettings, addFormElement);
 
 editFormValidator.enableValidation();
@@ -95,7 +94,6 @@ addFormValidator.enableValidation();
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
-
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -108,15 +106,13 @@ function openModal(modal) {
 }
 
 function renderCard(data, wrapper) {
-  const card = new Card (data, "#card-template", handleImageClick);
+  const card = new Card(data, "#card-template", cardsWrap);
   wrapper.prepend(card.getView());
 }
 
-function handleImageClick(data) {
-  imagePreview.src = data.link;
-  imagePreview.alt = `Photo of ${data.name}`;
-  imagePreviewTitle.textContent = data.name;
-  openModal(imagePreviewModal);
+function createCard(cardData, cardSelector) {
+  const cardElement = new Card(cardData, cardSelector);
+  return cardElement.getView();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -138,7 +134,7 @@ function handleAddCardSubmit(e) {
   addCardFormElement.reset();
 
   closeModal(addCardModal);
-addFormValidator.resetValidation()
+  addFormValidator.resetValidation();
 }
 
 function closeByEscape(evt) {
@@ -161,7 +157,6 @@ function closeByClick(evt) {
   modal.addEventListener("click", closeByClick);
 });
 
-
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -180,3 +175,4 @@ addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
+export { openModal };
