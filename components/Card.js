@@ -65,9 +65,9 @@ export default class Card {
     this._cardElement = null;
   }
   _handleImageClick() {
-    previewImage.src = this_.link;
-    previewImage.alt = `Photo of ${this_.name}`;
-    previewImageTitle.textContent = this_.name;
+    previewImage.src = this._link;
+    previewImage.alt = `Photo of ${this._name}`;
+    previewImageTitle.textContent = this._name;
     openModal(previewImageModal);
   }
 
