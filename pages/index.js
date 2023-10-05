@@ -65,8 +65,6 @@ const cardData = {
   link: cardUrlInput.value,
 };
 
-const card = new Card(cardData, "#card-template");
-
 /* -------------------------------------------------------------------------- */
 /*                                  Validation                                */
 /* -------------------------------------------------------------------------- */
@@ -106,13 +104,13 @@ function openModal(modal) {
 }
 
 function renderCard(data, wrapper) {
-  const card = new Card(data, "#card-template", cardsWrap);
-  wrapper.prepend(card.getView());
+  const cardElement = createCard(data);
+  wrapper.prepend(cardElement);
 }
 
 function createCard(cardData, cardSelector) {
-  const cardElement = new Card(cardData, cardSelector);
-  return cardElement.getView();
+  const card = new Card(cardData, "#card-template");
+  return card.getView();
 }
 
 /* -------------------------------------------------------------------------- */
