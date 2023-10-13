@@ -8,13 +8,12 @@
     <meta name="author" content="Valleri Merrill" />
     <link rel="shortcut icon" href="./favicon.ico" />
     <title>Around the U.S.</title>
-    <link href="./pages/index.css" rel="stylesheet" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/aroundtheus.svg"
+          src="<%=require('./images/aroundtheus.svg')%>"
           alt="Around the US logo"
           class="header__logo"
         />
@@ -22,7 +21,7 @@
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.png"
+            src="<%=require('./images/jacques-cousteau.png')%>"
             alt="Jacques Cousteau"
             class="profile__image"
           />
@@ -120,7 +119,6 @@
         ></button>
         <h2 class="modal__heading">New Place</h2>
         <form class="modal__form" id="add-card-form">
-
           <input
             class="modal__input modal__input_type_title"
             type="text"
@@ -150,7 +148,8 @@
             disabled
           >
             Save
-          </button></form>
+          </button>
+        </form>
       </div>
     </div>
     <template id="card-template">
@@ -172,8 +171,5 @@
           ></button>
         </div></li
     ></template>
-
-    <script type="module" src="./pages/index.js" defer></script>
-
   </body>
 </html>
