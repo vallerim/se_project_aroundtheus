@@ -1,14 +1,4 @@
-import { openModal } from "../pages/index.js";
-
-const previewImageModal = document.querySelector("#image-preview-modal");
-const previewImage = previewImageModal.querySelector("#image-preview");
-const previewImageCloseButton = previewImageModal.querySelector(
-  "#close-image-preview"
-);
-const previewImageTitle = previewImageModal.querySelector(
-  "#preview-image-title"
-);
-
+import { handleImageClick } from "../pages/index.js";
 export default class Card {
   constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
@@ -47,10 +37,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick({
-          name: this._name,
-          link: this._link,
-        });
+        handleImageClick({ name: this._name, link: this._link });
       });
   }
 
@@ -63,12 +50,6 @@ export default class Card {
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
-  }
-  _handleImageClick() {
-    previewImage.src = this._link;
-    previewImage.alt = `Photo of ${this._name}`;
-    previewImageTitle.textContent = this._name;
-    openModal(previewImageModal);
   }
 
   getView() {
