@@ -96,10 +96,10 @@ const cardSection = new Section(
 );
 cardSection.renderItems();
 
-function createCard(item) {
-  const cardElement = new Card(item, "#card-template", handleImageClick);
-  return cardElement.getView();
-}
+//function createCard(item) {
+//const cardElement = new Card(item, "#card-template", handleImageClick);
+// return cardElement.getView();
+//}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -119,7 +119,7 @@ export function handleImageClick(data) {
 function handleFormSubmit(data) {
   const cardValue = renderCard(data);
   cardSection.addItem(cardValue);
-  popupEditForm.close();
+  profileEditPopup.close();
   return cardValue;
 }
 

@@ -58,7 +58,7 @@ export default class FormValidator {
     this._inputEls.forEach((inputElement) => {
       inputElement.addEventListener("input", (evt) => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(inputElement);
+        this.toggleButtonState(inputElement);
       });
     });
     this.toggleButtonState();

@@ -37,7 +37,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        handleImageClick({ name: this._name, link: this._link });
+        handleImageClick(this);
       });
   }
 
@@ -57,7 +57,8 @@ export default class Card {
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardImage.src = this._link;
     this._cardImage.alt = `Image $ ${this._link}`;
-    this._cardElement.querySelector(".card__title").textContent = this._name;
+    this._cardTitle = this._cardElement.querySelector(".card__title");
+    this._cardTitle.textContent = this._name;
     this._setEventListeners();
     return this._cardElement;
   }
