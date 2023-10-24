@@ -127,6 +127,7 @@ function handleAddCardSubmit(data) {
     link: image,
   });
   cardSection.addItem(cardAdd);
+  addCardPopUp.close();
 }
 
 /* -------------------------------------------------------------------------- */
