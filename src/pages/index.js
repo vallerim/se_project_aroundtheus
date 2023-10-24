@@ -39,11 +39,6 @@ const previewImageTitle = previewImageModal.querySelector(
   "#preview-image-title"
 );
 
-const cardData = {
-  name: cardTitleInput.value,
-  link: cardUrlInput.value,
-};
-
 /* -------------------------------------------------------------------------- */
 /*                                 Form add and Validation                    */
 /* -------------------------------------------------------------------------- */
@@ -80,7 +75,11 @@ imagePopUp.setEventListeners();
 
 /* --------------------------- Popup Add Card -------------------------- */
 
-const addCardPopUp = new PopupWithForm("#add-card-modal", handleFormSubmit);
+const addCardPopUp = new PopupWithForm(
+  "#add-card-modal",
+  handleFormSubmit,
+  handleAddCardSubmit
+);
 addCardPopUp.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
@@ -114,10 +113,26 @@ function handleImageClick(data) {
 
 function handleFormSubmit(data) {
   const cardValue = renderCard(data);
-  cardSection.addItem();
+  const title = data.title;
+  const image = data.url;
+  const card = renderCard({
+    name: title,
+    link: image,
+  });
+  cardSection.addItem(card);
   profileEditPopup.close();
   addCardPopUp.close();
   return cardValue;
+}
+
+function handleAddCardSubmit(data) {
+  const title = data.title;
+  const image = data.url;
+  const cardAdd = renderCard({
+    name: title,
+    link: image,
+  });
+  cardSection.addItem(cardAdd);
 }
 
 /* -------------------------------------------------------------------------- */
