@@ -112,12 +112,7 @@ function handleImageClick(data) {
 }
 
 function handleFormSubmit(data) {
-  const cardValue = renderCard(data);
-
-  cardSection.addItem(cardValue);
-  profileEditPopup.close();
-  addCardPopUp.close();
-  return cardValue;
+  profileEditPopup.close(data);
 }
 function handleAddCardSubmit(data) {
   const title = data.title;
