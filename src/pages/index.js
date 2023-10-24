@@ -81,7 +81,7 @@ imagePopUp.setEventListeners();
 /* --------------------------- Popup Add Card -------------------------- */
 
 const addCardPopUp = new PopupWithForm("#add-card-modal", handleFormSubmit);
-addCardPopUp.setEventListeners;
+addCardPopUp.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
 /*                                   Section                                  */
@@ -90,36 +90,33 @@ addCardPopUp.setEventListeners;
 const cardSection = new Section(
   {
     items: initialCards,
-    renderer: renderCard,
+    renderer: (item) => {
+      const cardEl = renderCard(item);
+      cardSection.addItem(cardEl);
+    },
   },
   "#cards__list"
 );
 cardSection.renderItems();
 
-//function createCard(item) {
-//const cardElement = new Card(item, "#card-template", handleImageClick);
-// return cardElement.getView();
-//}
-
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-export function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardEl = card.getView();
-
-  cardSection.addItem(cardEl);
+function renderCard(data) {
+  const card = new Card(data, "#card-template", handleImageClick);
+  return card.getView();
 }
 
-export function handleImageClick(data) {
+function handleImageClick(data) {
   imagePopUp.open(data);
 }
 
 function handleFormSubmit(data) {
   const cardValue = renderCard(data);
-  cardSection.addItem(cardValue);
+  cardSection.addItem();
   profileEditPopup.close();
+  addCardPopUp.close();
   return cardValue;
 }
 
