@@ -64,7 +64,7 @@ addFormValidator.enableValidation();
 const userInfoNew = new UserInfo(".profile__title", ".profile__description");
 const profileEditPopup = new PopupWithForm("#edit-modal", (data) => {
   userInfoNew.setUserInfo(data);
-  profileEditPopup.close();
+  handleFormSubmit(data);
 });
 profileEditPopup.setEventListeners();
 
@@ -77,7 +77,7 @@ imagePopUp.setEventListeners();
 
 const addCardPopUp = new PopupWithForm(
   "#add-card-modal",
-  handleFormSubmit,
+
   handleAddCardSubmit
 );
 addCardPopUp.setEventListeners();
@@ -113,18 +113,12 @@ function handleImageClick(data) {
 
 function handleFormSubmit(data) {
   const cardValue = renderCard(data);
-  const title = data.title;
-  const image = data.url;
-  const card = renderCard({
-    name: title,
-    link: image,
-  });
-  cardSection.addItem(card);
+
+  cardSection.addItem(cardValue);
   profileEditPopup.close();
   addCardPopUp.close();
   return cardValue;
 }
-
 function handleAddCardSubmit(data) {
   const title = data.title;
   const image = data.url;
