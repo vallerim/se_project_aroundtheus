@@ -1,12 +1,7 @@
-import { handleImageClick } from "../pages/index.js";
-
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._popupCloseBtn = this._popupElement.querySelector(".modal__close");
-    this._popupImage = this._popupElement.querySelector(
-      ".modal__image-preview"
-    );
   }
 
   open() {

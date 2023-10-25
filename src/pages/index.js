@@ -16,28 +16,9 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
-const cardsWrap = document.querySelector(".gallery__cards");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+
 const addNewCardButton = document.querySelector("#profile-add-card");
 const addCardModal = document.querySelector("#add-card-modal");
-const addCardModalCloseButton = document.querySelector(
-  "#add-card-modal-close-button"
-);
-const addCardFormElement = document.querySelector("#add-card-form");
-const cardTitleInput = addCardFormElement.querySelector("#card-title-input");
-const cardUrlInput = addCardFormElement.querySelector("#card-image-url");
-const cardListEl = document.querySelector("#cards__list");
-
-const previewImageModal = document.querySelector("#image-preview-modal");
-const previewImage = previewImageModal.querySelector("#image-preview");
-const previewImageCloseButton = previewImageModal.querySelector(
-  "#close-image-preview"
-);
-const previewImageTitle = previewImageModal.querySelector(
-  "#preview-image-title"
-);
 
 /* -------------------------------------------------------------------------- */
 /*                                 Form add and Validation                    */
@@ -64,13 +45,13 @@ addFormValidator.enableValidation();
 const userInfoNew = new UserInfo(".profile__title", ".profile__description");
 const profileEditPopup = new PopupWithForm("#edit-modal", (data) => {
   userInfoNew.setUserInfo(data);
-  handleFormSubmit(data);
+  handleProfileFormSubmit(data);
 });
 profileEditPopup.setEventListeners();
 
 /* --------------------------- Popup Preview Image -------------------------- */
 
-const imagePopUp = new PopUpWithImage("#image-preview-modal", handleImageClick);
+const imagePopUp = new PopUpWithImage("#image-preview-modal");
 imagePopUp.setEventListeners();
 
 /* --------------------------- Popup Add Card -------------------------- */
@@ -111,8 +92,8 @@ function handleImageClick(data) {
   imagePopUp.open(data);
 }
 
-function handleFormSubmit(data) {
-  profileEditPopup.close(data);
+function handleProfileFormSubmit(data) {
+  profileEditPopup.close();
 }
 function handleAddCardSubmit(data) {
   const title = data.title;
