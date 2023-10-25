@@ -64,10 +64,8 @@ export default class FormValidator {
   }
 
   disableButton() {
-    if (!this._submitButton.disabled) {
-      this._submitButton.classList.add(this._inactiveButtonClass);
-      this._submitButton.disabled = true;
-    }
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
   }
 
   enableValidation() {
