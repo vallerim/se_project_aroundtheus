@@ -3,6 +3,8 @@
   align-items: center;
   padding-top: 40px;
   padding-bottom: 51px;
+  max-width: 880px;
+  margin: 0 auto;
 }
 
 .profile__info {
@@ -82,6 +84,30 @@
   object-fit: cover;
   background-position: center;
   margin-right: 24px;
+}
+
+.profile__avatar-container {
+  position: relative;
+  margin-right: 30px;
+}
+
+.profile__avatar-container:hover {
+  opacity: 0.6;
+}
+.profile__avatar-button {
+  background: transparent url(../images/avataredit.svg) center no-repeat;
+  height: 26px;
+  width: 26px;
+  position: absolute;
+  border: none;
+  visibility: hidden;
+  background-size: 26px;
+}
+
+.profile__avatar-button:hover {
+  cursor: pointer;
+  visibility: visible;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 875px) {
