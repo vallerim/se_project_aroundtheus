@@ -47,8 +47,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardSection = new Section(
       {
         items: initialCards,
-        renderer: createCard,
-        renderCard,
+        renderer: renderCard,
       },
       "#cards__list"
     );
