@@ -15,6 +15,8 @@ export default class Card {
     this.isLiked = isLiked;
     this.id = _id;
     this._cardDeleteButton = document.querySelector(".card__delete-button");
+    this._handleDeleteCardClick = handleDeleteCardClick; // Add this
+    this._handleLikeCardClick = handleLikeCardClick;
   }
 
   _getElement() {
@@ -25,17 +27,13 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeIcon();
-    });
-
-    this._cardDeleteButton.addEventListener("click", () => {
-      this.handleDeleteCard();
-    });
-
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this);
-    });
+    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
+    this._cardDeleteButton.addEventListener("click", () =>
+      this._handleDeleteCardClick(this.id)
+    );
+    this._cardImage.addEventListener("click", () =>
+      this._handleImageClick(this._link, this._name)
+    );
   }
 
   _handleLikeIcon() {
@@ -75,7 +73,9 @@ export default class Card {
   getView() {
     this._cardElement = this._getCardTemplate();
     this._likeButton = this._cardElement.querySelector(".card__like-button");
-    this._cardDeleteButton = this._cardElement.querySelector("#card-delete");
+    this._cardDeleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardImage.src = this._link;
     this._cardImage.alt = `Image $ ${this._name}`;

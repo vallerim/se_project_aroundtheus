@@ -175,7 +175,7 @@ function handleDeleteCardClick(cardId) {
   deleteCardPopup.setSubmitButton(() => {
     deleteCardPopup.setLoadMessage(true, "Deleting...");
     api
-      .deleteCard(cardId._id)
+      .deleteCard(cardId)
       .then(() => {
         deleteCardPopup.close();
         cardId.handleDeleteCard();
