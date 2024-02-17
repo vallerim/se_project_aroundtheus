@@ -16,6 +16,7 @@ export default class PopupWithConfirmation extends Popup {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit();
+    });
   }
 
   setLoadMessage(isLoading) {
@@ -35,6 +36,5 @@ export default class PopupWithConfirmation extends Popup {
       evt.preventDefault();
       this._handleFormSubmit();
     });
-    super.setEventListeners();
   }
 }
