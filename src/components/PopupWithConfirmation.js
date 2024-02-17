@@ -4,11 +4,21 @@ export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._deleteButton = this._popupElement.querySelector(".modal__button");
+    this._submitButton = this._popupForm.querySelector(".modal__button");
+    this._submitButtonText = this._submitButton.textContent;
+    this._deleteButton = this._popupElement.querySelector(
+      ".card__delete-button"
+    );
   }
 
   setSubmitButton(action) {
     this._handleFormSubmit = action;
+  }
+
+  setLoadMessage(isLoading) {
+    this._submitButton.textContent = isLoading
+      ? "Saving..."
+      : this._submitButtonLoadingText;
   }
 
   _handleButtonSubmit = (evt) => {
@@ -18,6 +28,10 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupForm.addEventListener("submit", this._handleButtonSubmit);
+    this._popupForm.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit();
+    });
+    super.setEventListeners();
   }
 }

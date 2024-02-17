@@ -14,6 +14,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this.isLiked = isLiked;
     this.id = _id;
+    this._cardDeleteButton = document.querySelector(".card__delete-button");
   }
 
   _getElement() {
@@ -57,6 +58,10 @@ export default class Card {
   handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  getId() {
+    return this._id;
   }
 
   _getCardTemplate() {
