@@ -170,21 +170,21 @@ function handleAddCardSubmit(card) {
     });
 }
 
-function handleDeleteCardClick(cardId) {
+function handleDeleteCardClick(card) {
   deleteCardPopup.open();
-  deleteCardPopup.setSubmitButton(() => {
+  deleteCardPopup.setSubmitAction(() => {
     deleteCardPopup.setLoadMessage(true, "Deleting...");
     api
-      .deleteCard(cardId)
+      .deleteCard(card.getId())
       .then(() => {
+        card.handleDeleteCard();
         deleteCardPopup.close();
-        cardId.handleDeleteCard();
       })
       .catch((err) => {
-        console.error(err);
+        console.error("Failed to delete the card:", err);
       })
       .finally(() => {
-        deleteCardPopup.setLoadMessage(false, "Yes");
+        deleteCardPopup.setLoadMessage(false);
       });
   });
 }
